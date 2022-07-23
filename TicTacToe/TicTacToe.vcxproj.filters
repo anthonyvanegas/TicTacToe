@@ -18,7 +18,7 @@
     <ClCompile Include="TicTacToe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\ttt.cpp">
+    <ClCompile Include="ttt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

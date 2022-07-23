@@ -128,8 +128,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\ttt.cpp" />
     <ClCompile Include="TicTacToe.cpp" />
+    <ClCompile Include="ttt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="functions.h" />
