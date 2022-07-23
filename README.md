@@ -6,3 +6,5 @@ Build a C++ Tic Tac Toe game, this was done to complete a C++ mastering data str
 
 * Developed a user interface within the command line to play game
 * Implemented functinality including game logic and player controls
+
+Main function is located inside of the TicTacToe.cpp file. 
