@@ -129,10 +129,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="TicTacToe.cpp" />
-    <ClCompile Include="functions.cpp" />
+    <ClCompile Include="Functions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="functions.h" />
+    <ClInclude Include="functions.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

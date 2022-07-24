@@ -2,33 +2,47 @@
 #include <vector>
 
 void greet() {
-	std::cout << "Hello! Welcome to Tic Tac Toe! Here is the Board:\n" << "\n";
+	std::cout << "Hello! Welcome to Tic Tac Toe!" << "\n";
+	std::cout << "Created By: Anthony Vanegas" << "\n\n";
 }
 
-std::vector<std::vector<char>> createBoard() {
-	std::vector<char> firstLine = { '_', '_', '_' };
-	std::vector<char> secondLine = { '_', '_', '_' };
-	std::vector<char> thirdLine = { '_', '_', '_' };
-
-	std::vector<std::vector<char>> board;
-
-	board.push_back(firstLine);
-	board.push_back(secondLine);
-	board.push_back(thirdLine);
-
-	return board;
+//Create a empty board and return it using a multi array, we return a pointer to it
+char** createBoardArray() {
+	char** c = new char*[3];
+	for (int i = 0; i <= 2; i++) {
+		c[i] = new char[3];
+		for (int j = 0; j <= 2; j++) {
+			c[i][j] = '_';
+		}
+	}
+	return c;
 }
 
-void printBoard(std::vector<std::vector<char>> boardArray) {
-	std::cout << "  1  2  3 " << "\n";
-	for (int i = 0; i < boardArray.size(); i++) {
-		std::cout << i+1;
-		for (int j = 0; j < boardArray[i].size(); j++) {
-			std::cout << "|" << boardArray[i][j] << "|";
+void printBoardArr(char** board) {
+	std::cout << "\tTIC TAC TOE: " << "\n";
+	std::cout << "\t  1  2  3 " << "\n";
+	for (int i = 0; i <= 2; i++) {
+		std::cout << "\t" << i + 1;
+		for (int j = 0; j <= 2; j++) {
+			std::cout << "|" << board[i][j] << "|";
 		}
 		std::cout << "\n";
 	}
 	std::cout << "\n";
+}
+
+bool getPlayerChoice() {
+	//get choice from user
+	bool p1Choice = false;  //true = x
+	char choice;
+
+	std::cout << "Player 1: Choose Your Tally (X/O) - ";
+	std::cin >> choice;
+	std::cout << "\n";
+	
+	if (choice == 'X') { p1Choice = !p1Choice; }
+
+	return choice;
 }
 
 std::vector<int> getInput() {
@@ -48,7 +62,7 @@ std::vector<int> getInput() {
 	return coords;
 }
 
-bool setInput(std::vector<int> coords, std::vector<std::vector<char>> &board, bool isX) {
+bool setInput(std::vector<int> coords, char** board, bool isX) {
 	if (board[coords[0]][coords[1]] == '_') {
 		if (isX) {
 			board[coords[0]][coords[1]] = 'X';
@@ -63,17 +77,17 @@ bool setInput(std::vector<int> coords, std::vector<std::vector<char>> &board, bo
 	}
 }
 
-bool isGameFinished(std::vector<std::vector<char>> board) {
+bool isGameFinished(char** board) {
 	bool win = false;
 
 	//Check if theres a win horizontally
-	for (std::vector<char> x : board) {
-		if (x[0] != '_' && x[0] == x[1] && x[1] == x[2]) { win = true; }
+	for (int i = 0; i <= 2; i++) {
+		if (board[i][0] != '_' && board[i][0] == board[i][1] && board[i][1] == board[i][2]) { win = true; }
 	}
 
 	//Check if theres a win vertically
-	for (int i = 0; i < 3; i++) {
-		if (board[0][i] != '_' && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+	for (int j = 0; j < 3; j++) {
+		if (board[0][j] != '_' && board[0][j] == board[1][j] && board[1][j] == board[2][j]) {
 			win = true;
 		}
 	}
@@ -91,11 +105,11 @@ bool isGameFinished(std::vector<std::vector<char>> board) {
 	return win;
 }
 
-bool isGameTie(std::vector<std::vector<char>> board) {
+bool isGameTie(char** board) {
 	bool tie = false;
-	for (std::vector<char> x : board) {
-		for (char i : x) {
-			if (i != '_') { tie = true; }
+	for (int i = 0; i <= 2; i++) {
+		for (int j = 0; j <= 2; j++) {
+			if (board[i][j] != '_') { tie = true; }
 			else { 
 				tie = false;
 				break;

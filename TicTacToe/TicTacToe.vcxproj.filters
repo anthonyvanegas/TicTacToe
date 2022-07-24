@@ -18,12 +18,12 @@
     <ClCompile Include="TicTacToe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="functions.cpp">
+    <ClCompile Include="Functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="functions.h">
+    <ClInclude Include="functions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
