@@ -29,11 +29,11 @@ int main()
         //Get player input
         if (playerState) { 
             std::cout << "player 1 make your choice:\n";
-            confirmInput = setInput(getInput(), board, p1Choice);
+            confirmInput = setInput(board, p1Choice);
         }
         else { 
             std::cout << "player 2 make your choice:\n";
-            confirmInput = setInput(getInput(), board, !p1Choice);
+            confirmInput = setInput(board, !p1Choice);
         }
 
         //Check status of input
@@ -51,14 +51,14 @@ int main()
     //Logic to display games final status
     if (!gameIsTie) {
         if (!playerState) {
-            std::cout << "player 1 won!";
+            std::cout << "Player 1 Won!";
         }
         else {
-            std::cout << "player 2 won!";
+            std::cout << "Player 2 Won!";
         }
     }
     else {
-        std::cout << "game is tie!";
+        std::cout << "Game is a Tie!";
     }
 
     delete(board);
